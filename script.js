@@ -6,7 +6,7 @@ const dataLine1 = {
   labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'], // Etiquetas de los días
   datasets: [{
     label: 'Km recorridos en Semana 9',
-    data: [18, 21, 8, 13, 11], // Datos de los km recorridos en cada día
+    data: [18, 21, 8, 10, 11], // Datos de los km recorridos en cada día
     borderColor: 'rgba(75, 192, 192, 1)',
     fill: true,
     tension: 0.1
@@ -107,5 +107,15 @@ function actualizarDiasRestantes() {
   document.getElementById("Semana 1").appendChild(video2);
   document.getElementById("Semana 2").appendChild(video3);
   document.getElementById("Semana 2").appendChild(video4);
+
+  audios.forEach(audio => {
+    audio.addEventListener("play", () => {
+      audios.forEach(otherAudio => {
+        if (otherAudio !== audio) {
+          otherAudio.pause();
+        }
+      });
+    });
+  });
 
 });
