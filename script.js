@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
 const dataLine1 = {
   labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'], // Etiquetas de los días
   datasets: [{
-    label: 'Km recorridos en Semana 19',
-    data: [11, 8, 11, 10, 24], // Datos de los km recorridos en cada día
+    label: 'Km recorridos en Semana 21',
+    data: [10, 16, 19, 10, 34], // Datos de los km recorridos en cada día
     borderColor: 'rgba(75, 192, 192, 1)',
     fill: true,
     tension: 0.1
@@ -14,10 +14,10 @@ const dataLine1 = {
 };
 
 const dataLine2 = {
-  labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'], // Etiquetas de los días
+  labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'], // Etiquetas de los días
   datasets: [{
-    label: 'Km recorridos en Semana 20',
-    data: [6, 5, 4, 100], // Datos de los km recorridos en cada día
+    label: 'Km recorridos en Semana 22',
+    data: [19, 18, 23, 18, 25], // Datos de los km recorridos en cada día
     borderColor: 'rgba(153, 102, 255, 1)',
     fill: true,
     tension: 0.1
@@ -107,5 +107,15 @@ function actualizarDiasRestantes() {
   document.getElementById("Semana 1").appendChild(video2);
   document.getElementById("Semana 2").appendChild(video3);
   document.getElementById("Semana 2").appendChild(video4);
+
+  audios.forEach(audio => {
+    audio.addEventListener("play", () => {
+      audios.forEach(otherAudio => {
+        if (otherAudio !== audio) {
+          otherAudio.pause();
+        }
+      });
+    });
+  });
 
 });
