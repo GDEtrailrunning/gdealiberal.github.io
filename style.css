@@ -55,7 +55,6 @@ body {
   margin: 1em 0; /* Utiliza em en lugar de píxeles */
 }
 
-
 .sub-container h1 {
   background-color: #b0afaf;
   padding: 2em;
@@ -63,16 +62,6 @@ body {
   font-family: 'Arial', sans-serif;
   font-size: 2.2em;
   text-align: center;
-}
-.h1 {
-  color: #ffffff;
-  font-size: 1.2em;
-  margin: 0; /* Eliminado para evitar márgenes predeterminados */
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  font-family: "Tajawal", sans-serif;
-  font-weight: 500;
 }
 
 .sub-container h2 {
@@ -190,7 +179,7 @@ video {
 }
 
 .sub-container h4 {
-  background-color: #9580e0;
+  background-color: #e2c19a;
   padding: 2em; /* Utiliza em en lugar de píxeles */
   margin: 0; /* Elimina márgenes predeterminados */
   font-family: 'Arial', sans-serif;
@@ -252,4 +241,3 @@ video {
     padding: 1em; /* Reducir el padding en pantallas pequeñas */
   }
 }
-
