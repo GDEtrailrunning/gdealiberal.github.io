@@ -1,60 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
   actualizarDiasRestantes();
-  setInterval(actualizarDiasRestantes, 24*60*60*1000); // Actualizar diario
-  //Datos para el gráfico de líneas
-const dataLine1 = {
-  labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'], // Etiquetas de los días
-  datasets: [{
-    label: 'Km recorridos en Semana 35',
-    data: [15, 15, 17, 10, 27], // Datos de los km recorridos en cada día
-    borderColor: 'rgba(75, 192, 192, 1)',
-    fill: true,
-    tension: 0.1
-  }]
-};
+  setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
 
-const dataLine2 = {
-  labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'], // Etiquetas de los días
-  datasets: [{
-    label: 'Km recorridos en Semana 36',
-    data: [14, 12, 18, 13, 28], // Datos de los km recorridos en cada día
-    borderColor: 'rgba(75, 192, 192, 1)',
-    fill: true,
-    tension: 0.1
-  }]
-};
+  // --- Datos ---
+  const dataLine1 = {
+    labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'],
+    datasets: [{
+      label: 'Km recorridos en Semana 37',
+      data: [14, 17, 18, 22],
+      borderColor: 'rgba(153, 102, 255, 1)',
+      fill: true,
+      tension: 0.1
+    }]
+  };
 
-// Configuración del gráfico de líneas
+  const dataLine2 = {
+    labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'],
+    datasets: [{
+      label: 'Km recorridos en Semana 38',
+      data: [10, 12, 13, 14],
+      borderColor: 'rgba(255, 99, 132, 1)',
+      fill: true,
+      tension: 0.1
+    }]
+  };
 
+  // --- Configuración base ---
+  const baseConfig = {
+    type: 'line',
+    options: { scales: { y: { beginAtZero: true } } }
+  };
 
-// Seleccione los contextos de los <canvas> y cree los gráficos
-const myChartLine1 = new Chart(document.getElementById('myChart-line-1'), {
-  type: 'line',
-  data: dataLine1, // Puede cambiar esto a dataLine2 para mostrar el gráfico de la segunda sección
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
+  // --- Crear gráficos ---
+  new Chart(document.getElementById('myChart-line-1'), { ...baseConfig, data: dataLine1 });
+  new Chart(document.getElementById('myChart-line-2'), { ...baseConfig, data: dataLine2 });
+  new Chart(document.getElementById('myChart-line-3'), { ...baseConfig, data: dataLine3 });
 
- const myChartLine2 = new Chart(document.getElementById('myChart-line-2'), {
-  type: 'line',
-  data: dataLine2,
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
+  // --- Función de cuenta regresiva ---
 
 function actualizarDiasRestantes() {
   // Fecha objetivo fija
-  const objetivoDate = new Date('2025-11-21');
+  const objetivoDate = new Date('2025-11-20');
   const currentDate = new Date();
   const timeDiff = objetivoDate - currentDate;
   const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
