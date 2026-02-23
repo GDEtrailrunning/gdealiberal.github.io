@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  actualizarDiasRestantes();
-  setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
+ //actualizarDiasRestantes();
+  //setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
 
   // --- Datos ---
   const dataLine1 = {
