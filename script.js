@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
- //actualizarDiasRestantes();
- //setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
+ actualizarDiasRestantes();
+ setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
 
   // --- Datos ---
   const dataLine1 = {
     labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'],
     datasets: [{
-      label: 'Km recorridos en Semana 19',
-      data: [11, 17, 21, 14, 29],
+      label: 'Km recorridos en Semana 21',
+      data: [15, 8, 9, 10, 12],
       borderColor: 'rgba(153, 102, 255, 1)',
       fill: true,
       tension: 0.1
@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const dataLine2 = {
     labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'],
     datasets: [{
-      label: 'Km recorridos en Semana 20',
-      data: [14, 10, 16, 13, 26],
+      label: 'Km recorridos en Semana 22',
+      data: [5, 5.5, 6, 5, 56],
       borderColor: 'rgba(255, 99, 132, 1)',
       fill: true,
       tension: 0.1
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function actualizarDiasRestantes() {
   // Fecha objetivo fija
-  const objetivoDate = new Date('2026-06-06');
+  const objetivoDate = new Date('2026-06-07');
   const currentDate = new Date();
   const timeDiff = objetivoDate - currentDate;
   const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
