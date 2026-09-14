@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-actualizarDiasRestantes();
-setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
+//actualizarDiasRestantes();
+//setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
   const chartFontFamily = '"Tajawal", Arial, sans-serif';
   const sharedChartOptions = {
     responsive: true,
@@ -94,10 +94,10 @@ setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
 
   // --- Datos ---
   const dataLine1 = {
-    labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'],
+    labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'],
     datasets: [{
-      label: 'Km recorridos en Semana 33',
-      data: [10, 9, 10, 17],
+      label: 'Km recorridos en Semana 35',
+      data: [10, 15, 17, 13, 20],
       borderColor: 'rgba(153, 102, 255, 1)',
       fill: true,
       tension: 0.1
@@ -105,10 +105,10 @@ setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
   };
 
   const dataLine2 = {
-    labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'],
+    labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'],
     datasets: [{
-      label: 'Km recorridos en Semana 34',
-      data: [5, 5, 4, 100],
+      label: 'Km recorridos en Semana 36',
+      data: [14, 12, 18, 13, 25],
       borderColor: 'rgba(255, 99, 132, 1)',
       fill: true,
       tension: 0.1
@@ -130,7 +130,7 @@ setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
 
 function actualizarDiasRestantes() {
   // Fecha objetivo fija
-  const objetivoDate = new Date('2026-08-28');
+  const objetivoDate = new Date('2026-11-11');
   const currentDate = new Date();
   const timeDiff = objetivoDate - currentDate;
   const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
