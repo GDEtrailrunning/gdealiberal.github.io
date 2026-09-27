@@ -250,17 +250,13 @@ audio {
 .chart-container {
   max-width: 900px;
   margin: 2.5em auto;
-  padding: 0 0.25rem;
 }
 
 .chart-container canvas {
   display: block;
   width: 100%;
   max-width: 100%;
-  height: 320px !important;
-  font-family: "Tajawal", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  height: 360px !important;
 }
 
 #countdown,
