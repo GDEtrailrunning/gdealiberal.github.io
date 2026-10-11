@@ -1,12 +1,103 @@
 document.addEventListener("DOMContentLoaded", function () {
 //actualizarDiasRestantes();
 //setInterval(actualizarDiasRestantes, 24 * 60 * 60 * 1000); // actualizar diario
-   // --- Datos ---
+  const chartFontFamily = '"Tajawal", Arial, sans-serif';
+  const sharedChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: {
+      mode: 'index',
+      intersect: false
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: '#374151',
+          font: {
+            family: chartFontFamily,
+            size: 12,
+            weight: '700'
+          },
+          padding: 14
+        }
+      },
+      tooltip: {
+        titleFont: {
+          family: chartFontFamily,
+          size: 13,
+          weight: '700'
+        },
+        bodyFont: {
+          family: chartFontFamily,
+          size: 12
+        },
+        backgroundColor: 'rgba(17, 24, 39, 0.95)',
+        titleColor: '#ffffff',
+        bodyColor: '#ffffff',
+        cornerRadius: 10,
+        padding: 10
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#4b5563',
+          font: {
+            family: chartFontFamily,
+            size: 12,
+            weight: '600'
+          },
+          maxRotation: 0,
+          autoSkip: true
+        },
+        grid: {
+          color: 'rgba(15, 23, 42, 0.08)',
+          drawBorder: false
+        },
+        border: {
+          color: 'rgba(15, 23, 42, 0.16)'
+        }
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          color: '#4b5563',
+          font: {
+            family: chartFontFamily,
+            size: 12,
+            weight: '600'
+          }
+        },
+        grid: {
+          color: 'rgba(15, 23, 42, 0.08)',
+          drawBorder: false
+        },
+        border: {
+          color: 'rgba(15, 23, 42, 0.16)'
+        }
+      }
+    },
+    elements: {
+      line: {
+        borderWidth: 2.5,
+        tension: 0.25
+      },
+      point: {
+        radius: 3.5,
+        hoverRadius: 5,
+        borderWidth: 1,
+        backgroundColor: 'rgba(45, 74, 62, 1)',
+        borderColor: 'rgba(45, 74, 62, 1)'
+      }
+    }
+  };
+
+  // --- Datos ---
   const dataLine1 = {
     labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'],
     datasets: [{
-      label: 'Km recorridos en Semana 37',
-      data: [14, 17, 18, 22, 25],
+      label: 'Km recorridos en Semana 39',
+      data: [12, 10, 14, 18, 35],
       borderColor: 'rgba(153, 102, 255, 1)',
       fill: true,
       tension: 0.1
@@ -16,112 +107,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const dataLine2 = {
     labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'],
     datasets: [{
-      label: 'Km recorridos en Semana 38',
-      data: [10, 12, 13, 14, 28],
+      label: 'Km recorridos en Semana 40',
+      data: [13, 19, 17, 16, 26],
       borderColor: 'rgba(255, 99, 132, 1)',
       fill: true,
       tension: 0.1
     }]
   };
 
-const chartFont = {
-  family: 'Tajawal, Arial, sans-serif',
-  size: 12,
-  weight: '500'
-};
+  // --- Configuración base ---
+  const baseConfig = {
+    type: 'line',
+    options: { scales: { y: { beginAtZero: true } } }
+  };
 
-// Configuración del gráfico de líneas
-const configLine = {
-  type: 'line',
-  data: dataLine1, // Puede cambiar esto a dataLine2 para mostrar el gráfico de la segunda sección
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        labels: {
-          color: '#374151',
-          font: chartFont
-        }
-      },
-      tooltip: {
-        titleFont: chartFont,
-        bodyFont: chartFont,
-        footerFont: chartFont
-      }
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: '#4b5563',
-          font: chartFont
-        },
-        grid: {
-          color: 'rgba(15, 23, 42, 0.08)'
-        }
-      },
-      y: {
-        beginAtZero: true,
-        ticks: {
-          color: '#4b5563',
-          font: chartFont
-        },
-        grid: {
-          color: 'rgba(15, 23, 42, 0.08)'
-        }
-      }
-    }
-  }
-};
+  // --- Crear gráficos ---
+  new Chart(document.getElementById('myChart-line-1'), { ...baseConfig, data: dataLine1 });
+  new Chart(document.getElementById('myChart-line-2'), { ...baseConfig, data: dataLine2 });
+  new Chart(document.getElementById('myChart-line-3'), { ...baseConfig, data: dataLine3 });
 
-// Seleccione los contextos de los <canvas> y cree los gráficos
-const myChartLine1 = new Chart(document.getElementById('myChart-line-1'), configLine);
-const myChartLine2 = new Chart(document.getElementById('myChart-line-2'), {
-  type: 'line',
-  data: dataLine2,
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        labels: {
-          color: '#374151',
-          font: chartFont
-        }
-      },
-      tooltip: {
-        titleFont: chartFont,
-        bodyFont: chartFont,
-        footerFont: chartFont
-      }
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: '#4b5563',
-          font: chartFont
-        },
-        grid: {
-          color: 'rgba(15, 23, 42, 0.08)'
-        }
-      },
-      y: {
-        beginAtZero: true,
-        ticks: {
-          color: '#4b5563',
-          font: chartFont
-        },
-        grid: {
-          color: 'rgba(15, 23, 42, 0.08)'
-        }
-      }
-    }
-  }
-});
+  // --- Función de cuenta regresiva ---
 
 function actualizarDiasRestantes() {
   // Fecha objetivo fija
-  const objetivoDate = new Date('2026-09-27');
+  const objetivoDate = new Date('2026-11-11');
   const currentDate = new Date();
   const timeDiff = objetivoDate - currentDate;
   const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
