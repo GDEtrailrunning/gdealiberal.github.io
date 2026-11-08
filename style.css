@@ -191,6 +191,11 @@ p {
   justify-content: center;
 }
 
+.single-video-container {
+  max-width: 560px;
+  margin: 2rem auto;
+}
+
 video,
 .responsive-video {
   width: 100%;
